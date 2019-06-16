@@ -13,6 +13,10 @@
       "no-implicit-dependencies": false,
       "no-submodule-imports": false,
       "no-var-requires": false,
-      "no-string-literal": false
+      "no-string-literal": false,
+      "semicolon": false,
+      "interface-name": false,
+      "only-arrow-functions": false,
+      "variable-name": false
   }
 }

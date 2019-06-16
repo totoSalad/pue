@@ -4,3 +4,9 @@ interface Vdom {
   children: (Vdom | string)[]
   value?: string
 }
+
+
+interface VDomAttribute {
+  name: string,
+  value: string
+}

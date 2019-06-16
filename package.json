@@ -7,7 +7,7 @@
     "build": "MODE=production webpack --mode=production",
     "start": "npm run dev",
     "precommit": "lint-staged",
-    "test": "jest --detectOpenHandles  --verbose"
+    "test": "jest --detectOpenHandles  --verbose "
   },
   "lint-staged": {
     "src/*/**.{ts,tsx}": "tslint --project tsconfig.json"
@@ -55,13 +55,16 @@
     "notify": true,
     "collectCoverage": true,
     "testEnvironment": "node",
+    "preset": "ts-jest",
     "globals": {
       "ts-jest": {
-        "tsConfig": "<rootDir>/tsconfig.json"
+        "tsConfig": "<rootDir>/tsconfig.json",
+        "babelConfig": "<rootDir>/__tests__/.babelrc",
+        "diagnostics": false
       }
     },
     "modulePaths": [
-      "<rootDir>/src"
+      "<rootDir>/"
     ],
     "roots": [
       "<rootDir>/__tests__"
