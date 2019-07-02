@@ -1,7 +1,7 @@
 function HtmlParser() {}
 
 interface Handle {
-  start: (node: string, attrs: object, unary: boolean) => void;
+  start: (node: string, attrs: VDomAttribute[], unary: boolean) => void;
   comment: (text: string) => void;
   char: (text: string) => void;
   end: (text: string) => void;
@@ -102,8 +102,8 @@ HtmlParser.prototype = {
     this.contentHandler.end(sTagName);
   },
   parseAttributes(sTagName: string, s: string): VDomAttribute[] {
-    let oThis = this;
-    let attrs: VDomAttribute[] = [];
+    const oThis = this;
+    const attrs: VDomAttribute[] = [];
     s.replace(this.attrRe, function(a0, a1, a2, a3, a4, a5, a6) {
         attrs.push(oThis.parseAttribute(sTagName, a0, a1, a2, a3, a4, a5, a6));
         return a0

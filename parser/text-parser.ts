@@ -3,11 +3,12 @@
 const tagRE = /\{\{((?:.|\n)+?)\}\}/g
 export default function parseText(text: string): string {
   let result
-  let tokens: string[] = []
+  const tokens: string[] = []
   let lastIndex = 0
-// tslint:disable-next-line: no-conditional-assignment
+  // tslint:disable-next-line: no-conditional-assignment
   while ((result = tagRE.exec(text)) !== null) {
     if (result.index > lastIndex) {
+      // 放入非匹配内容，并且进行 encode
       tokens.push(JSON.stringify(text.slice(lastIndex, result.index)))
     }
     tokens.push(`this._s(this.props.data.${result[1]})`)
