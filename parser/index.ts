@@ -64,6 +64,7 @@ export default function parse(
                 attrsMap: makeAttrsMap(attrs),
                 parent: currentParent,
                 children: [],
+                attrs: {},
             }
 
             // 处理属性
@@ -147,18 +148,4 @@ function processAttrs(el: DOMElement) {
 
 function addAttr(el: DOMElement, name: string, value: any) {
   (el.attrs || (el.attrs = [])).push({ name, value })
-}
-
-function getAndRemoveAttr(el: DOMElement, name: string) {
-  let val
-  if ((val = el.attrsMap[name]) != null) {
-      const list = el.attrsList
-      for (let i = 0, l = list.length; i < l; i++) {
-          if (list[i].name === name) {
-              list.splice(i, 1)
-              break
-          }
-      }
-  }
-  return val
 }
