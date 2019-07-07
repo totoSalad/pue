@@ -5,7 +5,7 @@ const { CheckerPlugin } = require('awesome-typescript-loader');
 var ROOT = path.resolve(__dirname)
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: './demo/index.js',
   devtool: 'source-map',
   output: {
     path: ROOT + '/dist',
@@ -19,6 +19,7 @@ module.exports = {
     contentBase: "./",
     port: 8889
   },
+  watch: true,
   module: {
     rules: [
       { test: /\.ts[x]?$/, loader: "awesome-typescript-loader" },

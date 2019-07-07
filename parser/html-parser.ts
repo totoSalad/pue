@@ -105,7 +105,9 @@ HtmlParser.prototype = {
     const oThis = this;
     const attrs: VDomAttribute[] = [];
     s.replace(this.attrRe, function(a0, a1, a2, a3, a4, a5, a6) {
-        attrs.push(oThis.parseAttribute(sTagName, a0, a1, a2, a3, a4, a5, a6));
+        if (a0.trim() !== "/") {
+          attrs.push(oThis.parseAttribute(sTagName, a0, a1, a2, a3, a4, a5, a6));
+        }
         return a0
     });
     return attrs;

@@ -54,7 +54,6 @@ export default function parse(
         // node 的开始
         start(tag: string, attrs: VDomAttribute[], unary: boolean) {
             // unary 是否一元标签，如 <img/>
-
             const element: DOMElement = {
                 type: 1,
                 tag,
@@ -64,7 +63,7 @@ export default function parse(
                 attrsMap: makeAttrsMap(attrs),
                 parent: currentParent,
                 children: [],
-                attrs: {},
+                attrs: [],
             }
 
             // 处理属性
@@ -147,5 +146,5 @@ function processAttrs(el: DOMElement) {
 }
 
 function addAttr(el: DOMElement, name: string, value: any) {
-  (el.attrs || (el.attrs = [])).push({ name, value })
+  el.attrs = (el.attrs || []).concat({ name, value })
 }

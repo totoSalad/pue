@@ -1,4 +1,4 @@
-import Mue from '../src/mue';
+import Pue from '../src/pue.ts';
 
 var template =
     '<div>' +
@@ -12,7 +12,7 @@ var template =
         '<input type="text" m-model="inputText" />' +
     '</div>'
 
-new Mue({
+new Pue({
   el: '#app',
   template,
   data: {
@@ -25,14 +25,14 @@ new Mue({
       inputText: ''
   },
   mounted(){
-      setTimeout(()=>{
-          this.data.title = 'title新值';
-          this.data.info.desc = 'desc新值';
-          this.data.loading = false;
-      },1500)
+      // setTimeout(()=>{
+      //     this.data.title = 'title新值';
+      //     this.data.info.desc = 'desc新值';
+      //     this.data.loading = false;
+      // },1500)
 
-      setInterval(()=>{
-          this.data.count++
-      },100)
+      // setInterval(()=>{
+      //     this.data.count++
+      // },100)
   }
 });
