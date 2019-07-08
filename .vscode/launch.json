@@ -6,9 +6,9 @@
   "configurations": [
     {
       "type": "node",
-      "request": "launch",
-      "name": "Launch Program",
-      "program": "${workspaceFolder}/__tests__/text-parser.ts"
+      "request": "attach",
+      "name": "Attach",
+      "port": 9229
     },
   ]
 }

@@ -17,10 +17,10 @@ export interface DOMTree {
   children: DOMTree[] | any
 }
 
-const patch = (Mue: {[key: string]: any}) => {
+const patch = (Pue: {[key: string]: any}) => {
 
   // vdom 渲染成 real dom
-  Mue.prototype.createElement = function(vdom: Vdom | string) {
+  Pue.prototype.createElement = function(vdom: Vdom | string) {
     const isTextNode = typeof vdom === "string" || typeof vdom === "number";
 
     // 创建元素
@@ -46,7 +46,7 @@ const patch = (Mue: {[key: string]: any}) => {
 
   // render 和 patch dom
   // TODO: 按照 diff patchDom 的模式改造
-  Mue.prototype.patch = function(parent, element, oldNode, node, isSvg) {
+  Pue.prototype.patch = function(parent, element, oldNode, node, isSvg) {
 
     // 同一个node树，什么也不处理
     if (node === oldNode) {
@@ -145,7 +145,7 @@ const patch = (Mue: {[key: string]: any}) => {
 }
 }
 
-const addEventListener = (vdom: Vdom, element: HTMLElement, mue: {[key: string]: any}) => {
+const addEventListener = (vdom: Vdom, element: HTMLElement, Pue: {[key: string]: any}) => {
   if (vdom.nodeName === "input") {
     (element as HTMLInputElement).value = vdom.value || "";
     element.addEventListener("input", function(e) {
@@ -153,7 +153,7 @@ const addEventListener = (vdom: Vdom, element: HTMLElement, mue: {[key: string]:
         const val = e.target.value;
         // 如何处理
         const str = `this.data.${expression}='${val}'`;
-        (new Function(str)).call(mue);
+        (new Function(str)).call(Pue);
     });
   }
 };

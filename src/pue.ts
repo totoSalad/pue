@@ -1,5 +1,6 @@
 import parse, { Element } from "../parser";
 import patchInit from "./patch";
+import watchData from "./watch"
 
 interface PueOption {
   el: string
@@ -12,7 +13,7 @@ export default function Pue(options: PueOption) {
   this.init(options);
 }
 
-// watchData(Mue);
+watchData(Pue);
 patchInit(Pue);
 
 Pue.prototype.init = function(options: PueOption) {
@@ -30,6 +31,8 @@ Pue.prototype.init = function(options: PueOption) {
 
   // mounted 函数
   mounted.call(this)
+
+  this.defineReactive()
 }
 
 Pue.prototype.render = function() {

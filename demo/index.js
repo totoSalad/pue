@@ -25,14 +25,15 @@ new Pue({
       inputText: ''
   },
   mounted(){
-      // setTimeout(()=>{
-      //     this.data.title = 'title新值';
-      //     this.data.info.desc = 'desc新值';
-      //     this.data.loading = false;
-      // },1500)
-
-      // setInterval(()=>{
-      //     this.data.count++
-      // },100)
+    
+    setTimeout(()=>{   
+        this.data.title = 'title新值';
+        this.data.info.desc = 'desc新值';
+        this.data.loading = false;
+    },1500)
+    
+    setInterval(() => {
+      this.data.count++
+    }, 2000)
   }
 });
